@@ -1,7 +1,7 @@
-const express = require("express");
-const productsRouter = require("./productsRouter");
-const usersRouter = require("./usersRouter");
-const categoriesRouter = require("./categoriesRouter");
+import express from "express";
+import productsRouter  from "./productsRouter.js";
+import usersRouter from "./usersRouter.js";
+import categoriesRouter from "./categoriesRouter.js";
 
 function routerApi(app) {
   const router = express.Router();
@@ -11,5 +11,5 @@ function routerApi(app) {
   router.use("/categories", categoriesRouter);
 }
 
-module.exports = routerApi;
+export default routerApi;
 

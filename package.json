@@ -11,7 +11,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "eslint": "^10.0.2",
     "eslint-config-prettier": "^10.1.8",
