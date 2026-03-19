@@ -8,13 +8,21 @@ const validatorHandler = require("../middlewares/validatorHandler");
 const router = express.Router();
 const service = new ProductsService();
 
-router.get("/",  async (req, res) => {
-  const products = await service.find();
-  res.json(products);
+router.get("/", async (req, res, next) => {
+  try {
+    const products = await service.find();
+    res.json(products);
+  } catch (error) {
+    next(error);
+  }
 });
 
-router.get("/filter", async (req, res) => {
-  res.send("I am a filter");
+router.get("/filter", async (req, res, next) => {
+  try {
+    res.send("I am a filter");
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.get("/:id",
