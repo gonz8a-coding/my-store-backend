@@ -13,14 +13,14 @@ app.use(express.json());
 const whitelist = ["http://localhost:8080", "https://myapp.co"];
 const options = {
   origin: (origin, callback) => {
-    if (whiitelist.includes(origin)) {
+    if (whitelist.includes(origin) || !origin) {
       callback(null, true);
     } else {
       callback(new Error("not allowed by CORS"));
     }
   }
 }
-app.use(cors());
+app.use(cors(options));
 
 app.get("/", (req, res) => {
   res.send("Welcome to My port!");
